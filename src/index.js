@@ -3,11 +3,12 @@ import { appShell } from "./core/appShell";
 import { createRouter } from "./core/router";
 import { handleRender } from "./core/render";
 
-const content = appShell();
-document.body.appendChild(content);
+const { header, root } = appShell();
+document.body.append(header, root);
 
 const app = {
-  content: content,
+  root: root,
+  header: header,
 };
 
 const router = createRouter(app, handleRender);
