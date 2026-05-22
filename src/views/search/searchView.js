@@ -1,4 +1,5 @@
 import { activateEvents } from "./searchEvents.js";
+import { createIcon } from "../../utils/icons.js";
 
 export function createSearchView(navigate) {
   const view = document.createElement("div");
