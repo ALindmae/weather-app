@@ -8,14 +8,14 @@ export function handleRender(app) {
   switch (state.route.name) {
     case "search":
       return render(
-        app.content,
+        app.root,
         createSearchView(({ name = "forecast", location = "london" }) =>
           app.navigate({ name, params: { location } }),
         ),
       );
     case "forecast":
       return render(
-        app.content,
+        app.root,
         createForecastView(
           ({ name = "weather-details", location = "london", date = "" }) =>
             app.navigate({ name, params: { location, date } }),
@@ -23,14 +23,14 @@ export function handleRender(app) {
       );
     case "weather-details":
       return render(
-        app.content,
+        app.root,
         createWeatherDetailsView(({ name = "forecast", location = "london" }) =>
           app.navigate({ name, params: { location } }),
         ),
       );
     default:
       return render(
-        app.content,
+        app.root,
         createSearchView(({ name = "forecast", location = "london" }) =>
           app.navigate({ name, params: { location } }),
         ),
@@ -38,8 +38,8 @@ export function handleRender(app) {
   }
 }
 
-function render(content, node) {
-  content.innerHTML = "";
-  content.append(node);
+function render(root, node) {
+  root.innerHTML = "";
+  root.append(node);
   return;
 }

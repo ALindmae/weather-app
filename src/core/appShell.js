@@ -1,5 +1,7 @@
 export function appShell() {
-  const content = document.createElement("div");
-  content.classList.add("content");
-  return content;
+  const header = document.createElement("header");
+  header.id = "header";
+  const root = document.createElement("main");
+  root.id = "root";
+  return { header, root };
 }
