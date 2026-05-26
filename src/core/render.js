@@ -9,31 +9,22 @@ export function handleRender(app) {
     case "search":
       return render(
         app.root,
-        createSearchView(({ name = "forecast", location = "london" }) =>
-          app.navigate({ name, params: { location } }),
-        ),
+        createSearchView((route) => app.navigate(route)),
       );
     case "forecast":
       return render(
         app.root,
-        createForecastView(
-          ({ name = "weather-details", location = "london", date = "" }) =>
-            app.navigate({ name, params: { location, date } }),
-        ),
+        createForecastView((route) => app.navigate(route)),
       );
     case "weather-details":
       return render(
         app.root,
-        createWeatherDetailsView(({ name = "forecast", location = "london" }) =>
-          app.navigate({ name, params: { location } }),
-        ),
+        createWeatherDetailsView((route) => app.navigate(route)),
       );
     default:
       return render(
         app.root,
-        createSearchView(({ name = "forecast", location = "london" }) =>
-          app.navigate({ name, params: { location } }),
-        ),
+        createSearchView((route) => app.navigate(route)),
       );
   }
 }

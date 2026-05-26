@@ -70,7 +70,7 @@ function setupPopstateListener(app, handleRender) {
 
 function parseUrlPath(path) {
   const parts = path.split("/").filter(Boolean);
-  console.log("parseutlpath", "parts:", parts);
+  console.log("parseurlpath", "parts: ", parts);
 
   const route = routes.find((r) => r.isMatch(parts));
 

@@ -1,4 +1,4 @@
 export const state = {
   route: null,
-  data: {},
+  forecast: null,
 };
