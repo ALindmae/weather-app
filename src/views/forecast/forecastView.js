@@ -20,12 +20,14 @@ export function createForecastView(navigate) {
         iconId: currentConditions.icon,
         temperature: currentConditions.temp,
         description: currentConditions.conditions,
+        date: day.datetime,
       };
     } else {
       payload = {
         iconId: day.icon,
         temperature: day.temp,
         description: day.description,
+        date: day.datetime,
       };
     }
 

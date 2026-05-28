@@ -1,12 +1,13 @@
 /* import { handleRender } from "./render"; */
 import { state } from "./state";
+import { getWeeklyWeather } from "../API/weatherApi";
 
 const routes = [
   {
     name: "search",
     isMatch: (parts) => {
-      if (parts.length !== 0) return false;
-      return true;
+      if (parts.length == 0) return true;
+      return false;
     },
     parse: (parts) => {
       return { name: "search", params: {} };
@@ -15,8 +16,8 @@ const routes = [
   {
     name: "forecast",
     isMatch: (parts) => {
-      if (parts.length !== 2 && parts[0] !== "forecast") return false;
-      return true;
+      if (parts.length == 2 && parts[0] == "forecast") return true;
+      return false;
     },
     parse: (parts) => {
       return { name: "forecast", params: { location: parts[1] } };
@@ -26,17 +27,17 @@ const routes = [
     name: "weather-details",
     isMatch: (parts) => {
       if (
-        parts.length !== 4 &&
-        parts[0] !== "location" &&
-        parts[2] !== "weatherDetails"
+        parts.length == 4 &&
+        parts[0] == "forecast" &&
+        parts[2] == "weatherDetails"
       )
-        return false;
-      return true;
+        return true;
+      return false;
     },
     parse: (parts) => {
       return {
         name: "weather-details",
-        params: { location: parts[0], date: parts[3] },
+        params: { location: parts[1], date: parts[3] },
       };
     },
   },
@@ -57,8 +58,15 @@ export function createRouter(app, handleRender) {
   return { init, navigate };
 }
 
-function handleBrowserNavigation(app, handleRender) {
-  state.route = parseUrlPath(location.pathname);
+async function handleBrowserNavigation(app, handleRender) {
+  state.route = parseUrlPath(window.location.pathname);
+
+  const routeLocation = state.route.params.location;
+
+  if (routeLocation && !state.forecast) {
+    await hydrateForecastState(routeLocation);
+  }
+
   handleRender(app);
 }
 
@@ -66,6 +74,16 @@ function setupPopstateListener(app, handleRender) {
   window.addEventListener("popstate", () =>
     handleBrowserNavigation(app, handleRender),
   );
+}
+
+async function hydrateForecastState(location) {
+  const data = await getWeeklyWeather(location);
+
+  if (!data) return false;
+
+  state.forecast = data;
+
+  return true;
 }
 
 function parseUrlPath(path) {
