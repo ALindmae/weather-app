@@ -22,6 +22,6 @@ async function onSearchSubmit({ event, navigate, searchValue }) {
     window.alert("Couldn't retrieve forecast, try another location.");
     return null;
   }
-
+  console.log(state);
   navigate({ name: "forecast", params: { location: result.location } });
 }

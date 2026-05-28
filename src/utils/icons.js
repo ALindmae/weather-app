@@ -14,6 +14,7 @@ import { sunStrongSvg } from "../assets/icons/sun-strong.js";
 import { sunSvg } from "../assets/icons/sun.js";
 import { thunderSvg } from "../assets/icons/thunder.js";
 import { windSvg } from "../assets/icons/wind.js";
+import { questionMarkSvg } from "../assets/icons/question-mark.js";
 
 const ICONS = {
   search: searchSvg,
@@ -32,6 +33,7 @@ const ICONS = {
   sun: sunSvg,
   thunder: thunderSvg,
   wind: windSvg,
+  questionMark: questionMarkSvg,
 };
 
 export function createIcon(iconName) {
@@ -45,4 +47,26 @@ export function createIcon(iconName) {
   const div = document.createElement("div");
   div.innerHTML = svgString;
   return div.firstElementChild;
+}
+
+const weatherIconMap = {
+  snow: "snow",
+  rain: "rain",
+  fog: "cloud",
+  wind: "wind",
+  cloudy: "cloud",
+  "partly-cloudy-day": "cloudPartly",
+  "partly-cloudy-night": "cloud",
+  "clear-day": "sunStrong",
+  "clear-night": "moonHalf",
+};
+
+export function createWeatherIcon(iconId) {
+  if (!weatherIconMap[iconId]) {
+    const icon = createIcon("questionMark");
+    icon.dataset.fallback = "true";
+    return icon;
+  }
+
+  return createIcon(weatherIconMap[iconId]);
 }
