@@ -19,7 +19,9 @@ export function handleRender(app) {
     case "weather-details":
       return render(
         app.root,
-        createWeatherDetailsView((route) => app.navigate(route)),
+        createWeatherDetailsView({
+          date: state.route.params.date,
+        }),
       );
     default:
       return render(
