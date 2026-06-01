@@ -3,8 +3,9 @@ import { appShell } from "./core/appShell";
 import { createRouter } from "./core/router";
 import { handleRender } from "./core/render";
 
-const { header, root } = appShell();
-document.body.append(header, root);
+const { shell, header, root } = appShell();
+
+document.body.append(shell);
 
 const app = {
   root: root,
