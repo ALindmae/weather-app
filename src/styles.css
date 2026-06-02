@@ -1,3 +1,20 @@
+/*--- Default styles ----*/
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/*--- Variables ---*/
+
+:root{
+    --secondary-bg-color: rgb(39, 39, 39);
+}
+
+
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100%;
@@ -17,8 +34,6 @@ body {
     width: 100%;
     display: flex;
 }
-
-
 
 
 /*--- Search View ---*/
@@ -146,4 +161,128 @@ body {
 .weather-card__text {
     padding: 0;
     margin: 0;
+}
+
+
+
+/*--- Weather details view ---*/
+
+#weather-details-view {
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+}
+
+.weather-details-view__overview {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-details-view__information {
+    flex:1;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows:max-content;
+}
+
+.weather-details-view__day {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.weather-details-view__temperature {
+    grid-row: 2 / 2;
+    grid-column: 1 / 1;
+
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+.weather-details-view__description {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    justify-self: end;
+    font-size: 1.1rem;
+}
+
+.weather-details-view__conditions-icon {
+    fill: white;
+    height: 13rem;
+    width: auto;
+    padding: 2.5rem 2rem;
+}   
+
+
+
+/* details section */
+.weather-details-view__details-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.2rem;
+}
+
+.weather-details-view__detail-box{
+    padding: 1rem;
+    background-color: var(--secondary-bg-color);
+    color: white;
+    fill: white;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.weather-details-view__detail-icon {
+    width: 2rem;
+    height:auto;
+}
+
+
+/* hourly forecast section */
+
+
+.weather-details-view__hourly {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+}
+
+.weather-details-view__hour-item {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:  0.2rem;
+    justify-content: space-between;
+    background-color: var(--secondary-bg-color);
+    padding: 1.2rem 0.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.weather-details-view__hour-item--current {
+    background-color: white;
+    color: var(--secondary-bg-color)
+}
+
+.weather-details-view__hour-item--current svg {
+    fill: var(--secondary-bg-color)
+}
+
+.weather-details-view__hour-icon {
+    fill: white;
+    color: white;
+    height: auto;
+    width: 80%;
 }
