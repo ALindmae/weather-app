@@ -1,0 +1,75 @@
+.
+├── .DS_Store
+├── .env
+├── .gitignore
+├── dist
+│   ├── index.html
+│   └── main.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── .DS_Store
+│   ├── API
+│   │   └── weatherApi.js
+│   ├── assets
+│   │   ├── .DS_Store
+│   │   └── icons
+│   │       ├── .DS_Store
+│   │       ├── chevron-back.js
+│   │       ├── cloud-partly.js
+│   │       ├── cloud.js
+│   │       ├── drop.js
+│   │       ├── hour-glass.js
+│   │       ├── moon-half.js
+│   │       ├── play.js
+│   │       ├── question-mark.js
+│   │       ├── rain.js
+│   │       ├── rewind.js
+│   │       ├── search.js
+│   │       ├── snow.js
+│   │       ├── speech-bubble.js
+│   │       ├── sun-strong.js
+│   │       ├── sun.js
+│   │       ├── thunder.js
+│   │       └── wind.js
+│   ├── components
+│   │   ├── .DS_Store
+│   │   └── header
+│   │       ├── header.js
+│   │       ├── headerEvents.js
+│   │       └── headerServices.js
+│   ├── core
+│   │   ├── appShell.js
+│   │   ├── render.js
+│   │   ├── router.js
+│   │   └── state.js
+│   ├── index.js
+│   ├── styles.css
+│   ├── template.html
+│   ├── utils
+│   │   ├── dateTimeUtils.js
+│   │   ├── fetchJSON.js
+│   │   └── icons.js
+│   └── views
+│       ├── forecast
+│       │   ├── components
+│       │   │   └── weatherCard.js
+│       │   ├── forecastEvents.js
+│       │   ├── forecastServices.js
+│       │   └── forecastView.js
+│       ├── search
+│       │   ├── searchEvents.js
+│       │   ├── searchServices.js
+│       │   └── searchView.js
+│       └── weatherDetails
+│           ├── sections
+│           │   ├── detailsSection.js
+│           │   ├── hourlyForecastSection.js
+│           │   └── overviewSection.js
+│           ├── weatherDetailsEvents.js
+│           ├── weatherDetailsServices.js
+│           └── weatherDetailsView.js
+├── structure.txt
+└── webpack.config.js
+
+16 directories, 57 files

@@ -1,5 +1,5 @@
 import { state } from "../../core/state";
-import { handleWeatherData } from "./searchServices";
+import { loadForecast } from "../../services/searchService";
 
 export function activateEvents({ element, navigate }) {
   const searchForm = element.querySelector(".search-view__form");
@@ -16,12 +16,12 @@ export function activateEvents({ element, navigate }) {
 
 async function onSearchSubmit({ event, navigate, searchValue }) {
   event.preventDefault();
-  const result = await handleWeatherData(searchValue);
+  const result = await loadForecast(searchValue);
 
   if (!result.success) {
     window.alert("Couldn't retrieve forecast, try another location.");
     return null;
   }
-  console.log(state);
+
   navigate({ name: "forecast", params: { location: result.location } });
 }

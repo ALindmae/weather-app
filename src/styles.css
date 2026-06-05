@@ -22,6 +22,7 @@ body {
 }
 
 .app {
+    padding: 0 0.8rem;
     max-width: 480px;
     min-height: 100vh;
     background-color: black;
@@ -33,6 +34,82 @@ body {
     flex: 1;
     width: 100%;
     display: flex;
+}
+
+/* --- Header --- */
+
+.navigation {
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    position: relative;
+}
+
+.navigation__back {
+        all: unset;
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 2.5rem;
+}
+
+.navigation__back > svg{
+    color: white;
+    width: 1.9rem;
+    height: auto;
+}
+
+
+.navigation__location {
+    color: white;
+    font-size: 1.5rem;
+    justify-self: center;
+}
+
+.navigation__search-form {
+    border-radius: 25px;
+    transition: background-color 0.3s ease-in-out;
+    position: absolute;
+    padding: 0.3rem 1rem;
+    padding-right: 0.5rem;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.navigation__search-form.is-open{
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.navigation__search-form.is-open input{
+    width: min(300px, 60vw);
+}
+
+.navigation__search-form input {
+    all: unset;
+    box-sizing: border-box;
+    transition: width 0.3s ease-in-out;
+    width: 0;
+    padding: 0;
+    border: 0;
+}
+
+.navigation__search-form button {
+    all:unset;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.navigation__search-form svg {
+    color: white;
+    width: 1.5rem;
+    height: auto;
+}
+
+.navigation__search-form.is-open svg {
+    transition: color 0.3s ease-in-out;
+    color: black;
 }
 
 
@@ -70,16 +147,17 @@ body {
 .search-view__form {
     all: unset;
     width: 100%;
-        display: flex;
-            align-items: center;
-            justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     
 
 }
 
 .search-view__input {
     all: unset;
-        box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
     color: black;
 }
 
@@ -105,7 +183,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     width: 100%;
 }
 
@@ -172,7 +250,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     gap: 2rem;
 }
 

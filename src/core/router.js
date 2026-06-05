@@ -88,7 +88,6 @@ async function hydrateForecastState(location) {
 
 function parseUrlPath(path) {
   const parts = path.split("/").filter(Boolean);
-  console.log("parseurlpath", "parts: ", parts);
 
   const route = routes.find((r) => r.isMatch(parts));
 
