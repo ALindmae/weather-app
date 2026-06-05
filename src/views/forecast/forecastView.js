@@ -12,10 +12,9 @@ export function createForecastView(navigate) {
 
   state.forecast.days.forEach((day, index) => {
     let payload;
+    const currentConditions = state.forecast.currentConditions;
 
-    if (index === 0) {
-      const currentConditions = state.forecast.currentConditions;
-
+    if (index === 0 && currentConditions) {
       payload = {
         iconId: currentConditions.icon,
         temperature: currentConditions.temp,

@@ -70,12 +70,10 @@ export function getHourlyForecastSectionData(date) {
   }
 
   // if current day is selected, replace the hour item that overlaps with current time, with currentConditions data
-  if (dayIndex === 0) {
-    const {
-      datetime,
-      temp: temperature,
-      icon: iconId,
-    } = forecast.currentConditions;
+
+  const currentConditions = forecast.currentConditions;
+  if (dayIndex === 0 && currentConditions) {
+    const { datetime, temp: temperature, icon: iconId } = currentConditions;
 
     const currentTime = datetime.split(":").slice(0, -1).join(":");
 
