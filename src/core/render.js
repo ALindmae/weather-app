@@ -41,7 +41,6 @@ export function handleRender(app) {
 }
 
 function render(root, node) {
-  console.log(state);
   root.innerHTML = "";
   root.append(node);
   return;
@@ -59,6 +58,10 @@ function renderHeader(app) {
 
   render(
     app.header,
-    createNavBar({ location, navigate: (route) => app.navigate(route) }),
+    createNavBar({
+      location,
+      navigate: (route) => app.navigate(route),
+      navigateUp: app.navigateUp,
+    }),
   );
 }

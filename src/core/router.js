@@ -55,7 +55,19 @@ export function createRouter(app, handleRender) {
     handleRender(app);
   }
 
-  return { init, navigate };
+  function navigateUp() {
+    switch (state.route.name) {
+      case "weather-details":
+        return navigate({
+          name: "forecast",
+          params: { location: state.route.params.location },
+        });
+      case "forecast":
+        return navigate({ name: "search" });
+    }
+  }
+
+  return { init, navigate, navigateUp };
 }
 
 async function handleBrowserNavigation(app, handleRender) {

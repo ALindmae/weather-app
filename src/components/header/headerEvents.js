@@ -1,9 +1,19 @@
 import { loadForecast } from "../../services/searchService";
 
-export function activateEvents({ navBar, navigate }) {
+export function activateEvents({ navBar, navigate, navigateUp }) {
   navBar.addEventListener("submit", (e) => {
     handleSearchFormSubmit({ e, navigate });
   });
+  navBar.addEventListener("click", (e) => {
+    onBackButtonClick({ e, navigateUp });
+  });
+}
+
+function onBackButtonClick({ e, navigateUp }) {
+  const backButton = e.target.closest(".navigation__back");
+  if (!backButton) return;
+
+  navigateUp();
 }
 
 function handleSearchFormSubmit({ e, navigate }) {

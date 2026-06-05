@@ -15,5 +15,6 @@ const app = {
 const router = createRouter(app, handleRender);
 
 app.navigate = router.navigate;
+app.navigateUp = router.navigateUp;
 
 router.init();

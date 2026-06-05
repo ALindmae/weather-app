@@ -2,7 +2,7 @@ import { createIcon } from "../../utils/icons";
 import { state } from "../../core/state";
 import { activateEvents } from "./headerEvents";
 
-export function createNavBar({ location, navigate }) {
+export function createNavBar({ location, navigate, navigateUp }) {
   const navBar = document.createElement("nav");
   navBar.classList.add("navigation");
 
@@ -29,7 +29,7 @@ export function createNavBar({ location, navigate }) {
   searchForm.append(searchInput, searchButton);
   navBar.append(backButton, locationElement, searchForm);
 
-  activateEvents({ navBar, navigate });
+  activateEvents({ navBar, navigate, navigateUp });
 
   return navBar;
 }
