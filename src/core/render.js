@@ -41,6 +41,7 @@ export function handleRender(app) {
 }
 
 function render(root, node) {
+  console.log(state);
   root.innerHTML = "";
   root.append(node);
   return;

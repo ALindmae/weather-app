@@ -87,7 +87,7 @@ async function hydrateForecastState(location) {
 }
 
 function parseUrlPath(path) {
-  const parts = path.split("/").filter(Boolean);
+  const parts = path.split("/").filter(Boolean).map(decodeURIComponent);
 
   const route = routes.find((r) => r.isMatch(parts));
 
@@ -104,10 +104,10 @@ function buildUrlPath(route) {
       return "/";
     case "forecast":
       if (!location) return "/forecast";
-      return `/forecast/${location}`;
+      return `/forecast/${encodeURIComponent(location)}`;
     case "weather-details":
       if (!location || !date) return "/forecast";
-      return `/forecast/${location}/weatherDetails/${date}`;
+      return `/forecast/${encodeURIComponent(location)}/weatherDetails/${encodeURIComponent(date)}`;
     default:
       return "/";
   }
