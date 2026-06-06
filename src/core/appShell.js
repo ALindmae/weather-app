@@ -1,3 +1,5 @@
+import { createChatbotWidget } from "../components/chatbot/chatbot";
+
 export function appShell() {
   const shell = document.createElement("div");
   shell.classList.add("app");
@@ -6,6 +8,6 @@ export function appShell() {
   const root = document.createElement("main");
   root.id = "root";
 
-  shell.append(header, root);
+  shell.append(header, root, createChatbotWidget());
   return { shell, header, root };
 }
