@@ -1,6 +1,6 @@
-export async function fetchJSON(URL) {
+export async function fetchJSON(URL, options = "") {
   try {
-    const response = await fetch(URL);
+    const response = await fetch(URL, options);
 
     if (!response || !response.ok)
       throw new Error("Faulty response from the rserver");

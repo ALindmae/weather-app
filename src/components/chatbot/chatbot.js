@@ -1,10 +1,13 @@
 import { createIcon } from "../../utils/icons";
+import { activateEvents } from "./chatbotEvents";
 
 export function createChatbot() {
   const widget = document.createElement("div");
   widget.classList.add("chatbot");
 
   widget.append(createChatbotToggle(), createChatWindow());
+  activateEvents(widget);
+
   return widget;
 }
 

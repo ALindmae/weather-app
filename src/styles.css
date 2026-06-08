@@ -46,7 +46,10 @@ body {
 
 .chatbot__window {
     visibility: hidden;
+}
 
+.chatbot__window.is-open{
+    visibility: visible;
 }
 
 /* --- Header --- */
